@@ -1,6 +1,6 @@
-## Raspacman simple JScanvas game
+## Raspacman simple JS-canvas game
 
-To be seen: http://peter.brecska.sk/hra/
-Gameplay: mobile Swipes / arrows / WASD
+To be seen: http://peter.brecska.sk/hra/   
+_Gameplay:_ mobile Swipes / arrows / WASD
 
-@Peter Brecska ApacheLic
+- School project at FIIT STU
