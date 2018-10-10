@@ -21,14 +21,9 @@ var kde_y = 0
 var lopta = new lopta_constructor()
 var hrac = new hrac_constructor()
 
-/**
- * a = lavy hony roh - x
- * b = lavhy horny roh - y
- * c = sirka
- * d = vyska
- */
-function pridaj_ciaru(a, b, c, d) {
-    ciarky.push(new ciara_constructor(a, b, c, d))
+
+function pridaj_ciaru(x, y, w, h) {
+    ciarky.push(new ciara_constructor(x, y, w, h))
 }
 
 function pridaj_coin(x, y) {
@@ -39,14 +34,8 @@ function pridaj_diamant(x, y) {
     diamanty.push(new diamant_constructor(x, y))
 }
 
-/**
- * 
- * @param {*} x 
- * @param {*} y 
- * @param {string} smer - left/right/up/down
- */
-function pridaj_priserku(x, y, smer) {
-    priserky.push(new priserka_constructor(x, y, smer))
+function pridaj_priserku(x, y, direction) {
+    priserky.push(new priserka_constructor(x, y, direction))
 }
 
 //**********************************************************
@@ -120,7 +109,7 @@ function animation() {
 
     lopta_draw()
     priserka_draw()
-    menu_draw()
+    scorebar_draw()
     ciara_draw()
     coin_draw()
     diamant_draw()
@@ -137,18 +126,17 @@ function animation() {
 
 window.onload = function () {
     init()
-
     document.onkeydown = function (e) {
         doKeyDown(e)
     }
     controlTouch()
 
-    window.scrollTo(0, 0) //Na odstránenie URL baru z mobilných browserov ... ale nefunguje nejak :D
+    window.scrollTo(0, 0) //Na odstránenie URL baru z mobilných browserov
 
     if ($.cookie('highscore') == undefined) { $.cookie('highscore', 0) }
 
     context.drawImage(intro, 200, 0, 800, 600)
-    context.font = "60px Karma";
+    context.font = "60px Pixelic";
     context.fillStyle = '#101C04'
     context.fillText("Click/touch to PLAY !", 400, 600)
 

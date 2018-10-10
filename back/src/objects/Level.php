@@ -17,13 +17,19 @@ class Level implements \API\ILevel
         return $this->id;
     }
 
-    public function getJson()
+    public function getLines()
     {
-        return $this->json;
     }
-
-    public function setJson($json)
+    public function getMonsters()
     {
-        $this->json = $json;
+    }
+    public function getDiamonds()
+    {
+    }
+    public function getCoins()
+    {
+    }
+    public function getStratingPos()
+    {
     }
 }

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Pixelic;
+    src: url('Pixelic.ttf');
+}
+
+#canvas_id {
+    transform: translate3d(0, 0, 0);
+    /*
+   Hardvérová akcelerácia, 
+   zdroj:  http://www.tricedesigns.com/2013/03/11/performance-ux-considerations-for-successful-phonegap-apps/
+   */
+    position: absolute;
+}
+
+body,
+div,
+canvas {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: Pixelic;
+}
+
+body {
+    background-color: #360259;
+}

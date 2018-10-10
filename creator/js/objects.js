@@ -1,8 +1,8 @@
 function hrac_constructor() {
     this.level = 0;
 }
+
 hrac_constructor.prototype.score = 0
-/* skúšal som prototype */
 
 function lopta_constructor() {
     //Constructor loptičky
@@ -28,7 +28,6 @@ function ciara_constructor(zac_x, zac_y, end_x, end_y) {
 }
 
 function priserka_constructor(x, y, direction) {
-    //Constructor monštra :D
     this.dx = 1
     this.dy = 1
     this.x = x
@@ -39,14 +38,13 @@ function priserka_constructor(x, y, direction) {
     this.direction = direction
 
 }
+
 priserka_constructor.prototype.change_direction = function (now) {
     if (now == "down") this.direction = "up"
     if (now == "up") this.direction = "down"
     if (now == "left") this.direction = "right"
     if (now == "right") this.direction = "left"
 }
-
-
 
 function boss_constructor(x, y) {
     //Constructor boss_constructora
@@ -64,19 +62,20 @@ function boss_constructor(x, y) {
     this.smer = this.smer.toFixed(0)
 
     boss_constructor.rand_direction = function () {
-
         smer_rand = Math.random() * 3
         smer_rand = smer_rand.toFixed(0)
         this.direction = smer[smer_rand] // 0,1,2,3
     }
 }
-function coin_constructor(x, y, active) {
+
+function coin_constructor(x, y) {
     //Constructor bodov
     this.x = x - 5
     this.y = y - 5
     this.active = true
 }
-function diamant_constructor(x, y, active) {
+
+function diamant_constructor(x, y) {
     //Constructor bodov
     this.x = x - 15
     this.y = y - 15

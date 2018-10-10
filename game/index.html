@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Raspacman creator of levels</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/xml" />
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <meta author="Pepies" />
+  <link href="img/fav.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+</head>
+
+<body>
+
+  <canvas id="canvas_id">
+    NO support found.
+  </canvas>
+
+  <img src="img/rstp2.png" hidden="hidden" id="intro" />
+  <img src="img/life.png" hidden="hidden" id="life" />
+  <img src="img/life_empty.png" hidden="hidden" id="life_empty" />
+
+  <img src="img/prek.png" hidden="hidden" id="prek_bg" />
+
+  <img src="img/coin.gif" hidden="hidden" id="img_coin" />
+  <img src="img/dia.png" hidden="hidden" id="img_diamant" />
+
+  <img src="img/enemy_0.png" hidden="hidden" id="enemy_0" />
+  <img src="img/enemy_1.png" hidden="hidden" id="enemy_1" />
+  <img src="img/enemy_2.png" hidden="hidden" id="enemy_2" />
+  <img src="img/enemy_3.png" hidden="hidden" id="enemy_3" />
+  <img src="img/enemy_4.png" hidden="hidden" id="enemy_4" />
+
+
+  <img src="img/front.png" hidden="hidden" id="front" />
+  <img src="img/back.png" hidden="hidden" id="back" />
+  <img src="img/left.png" hidden="hidden" id="left" />
+  <img src="img/right.png" hidden="hidden" id="right" />
+
+  <img src="img/1.png" hidden="hidden" id="naraz_1" />
+  <img src="img/2.png" hidden="hidden" id="naraz_2" />
+  <img src="img/3.png" hidden="hidden" id="naraz_3" />
+  <img src="img/4.png" hidden="hidden" id="naraz_4" />
+
+
+  <audio controls id="zvuk_naraz" hidden="hidden">
+    <source src="sfx/naraz.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio controls id="zvuk_coin" hidden="hidden">
+    <source src="sfx/coin.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio controls id="zvuk_power" hidden="hidden">
+    <source src="sfx/power.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio controls id="zvuk_diam" hidden="hidden">
+    <source src="sfx/diam.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio controls id="zvuk_monster" hidden="hidden">
+    <source src="sfx/monster.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script src="frameworks/hammer.min.js"></script>
+  <script src="frameworks/jquery-2.1.0.min.js"></script>
+  <script src="frameworks/jquery.cookie.js"></script>
+  <script src="js/objects.js"></script> <!-- model -->
+  <script src="js/levels.js"></script>
+  <script src="js/controls.js"></script><!-- controler -->
+  <script src="js/collisions.js"></script>
+  <script src="js/draw.js"></script><!-- view -->
+  <script src="js/init.js"></script>
+
+</body>
+
+</html>

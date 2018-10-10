@@ -8,12 +8,12 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <meta author="Pepies" />
     <link href="img/fav.ico" rel="icon" type="image/x-icon" />
-    <script src="frameworks/hammer.min.js"></script>
-    <script src="frameworks/jquery-2.1.0.min.js"></script>
-    <script src="frameworks/jquery.cookie.js"></script>
+    <script src="front/frameworks/hammer.min.js"></script>
+    <script src="front/frameworks/jquery-2.1.0.min.js"></script>
+    <script src="front/frameworks/jquery.cookie.js"></script>
     <script>
         $(document).ready(()=>{
-            $.getJSON( "ajax/test.json", function( data ) {
+            $.getJSON( "https://raspacman.brecska.sk/back/src/api/create.php", function( data ) {
                 console.log(data);
             });
         })
@@ -21,6 +21,8 @@
 </head>
 
 <body>
+    Creator<br>
+    Game
 </body>
 
 </html>

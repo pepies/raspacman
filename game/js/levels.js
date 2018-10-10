@@ -1,28 +1,53 @@
-function clear_lvl() {
+function level_passed() {
+
+  lopta.direction = "stop";
+  newLevel(true)
+}
+
+function level_over() {
+
+  lopta.direction = "stop"
+
+  if ($.cookie('highscore') < hrac.score) { $.cookie('highscore', hrac.score) }
+
+  lopta.life = 3
+  hrac.score -= 10
+  if (hrac.score < 0) hrac.score = 0
+
+  newLevel(false)
+}
+
+function clear_gameboard() {
   ciarky.splice(0, 9999)
   coiny.splice(0, 9999)
   diamanty.splice(0, 9999)
   priserky.splice(0, 9999)
+  pridaj_ciaru(0, 600, 1200, 5)
+  pridaj_ciaru(0, 0, 1200, 5)
+  pridaj_ciaru(0, 0, 5, 600)
 }
 
 /**
- * 
  * @param {bool} setNew - draw new level?
  */
 function newLevel(setNew) {
-  clear_lvl()
+  clear_gameboard()
 
   if (setNew) {
     hrac.level++
   }
-  level_1()
 
-  pridaj_ciaru(0, 600, 1200, 5)
-  pridaj_ciaru(0, 0, 1200, 5)
-  pridaj_ciaru(0, 0, 5, 600)
-
-
+  if (hrac.level == 1) {
+    level_1()
+  } else {
+    level_rand_db()
+  }
 }
+ 
+function level_rand_db() {
+  
+}
+
 function level_1() {
 
   lopta.x = 50

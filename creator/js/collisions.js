@@ -16,34 +16,8 @@ function check_point() {
 
     lopta.direction = "stop"
     lopta.naraz = false
-    console.log('lopta.naraz')
-    if (lopta.life == 0) {
-        level_over()
-    } else {
-        lopta.life -= 1
-    }
+    
 }
-
-function level_passed() {
-
-    lopta.direction = "stop";
-    newLevel(true)
-}
-
-function level_over() {
-
-    lopta.direction = "stop"
-
-    if ($.cookie('highscore') < hrac.score) { $.cookie('highscore', hrac.score) }
-
-    lopta.life = 3
-    hrac.score -= 10
-    if (hrac.score < 0) hrac.score = 0
-
-    newLevel(false)
-}
-
-// Testing collision before drawing object <in draw.js>
 
 function CiarkyVsLopta(ciara) {
     if (((lopta.x - 15) < (ciara.end_x + ciara.zac_x) && (lopta.x + 15) > ciara.zac_x)
@@ -79,6 +53,7 @@ function CoinVsLopta(coina) {
         zvuk_coin.play()
     }
 }
+
 function DiamantyVsLopta(diam) {
     if ((((lopta.x + 18) > diam.x)
         &&
@@ -94,8 +69,6 @@ function DiamantyVsLopta(diam) {
     }
 }
 
-
-//CIARY vs PRISERKY
 function CiarkyVsPriserky(priserka) {
     for (i in ciarky) {
         var ciara = ciarky[i]
