@@ -1,5 +1,5 @@
 <?php
-namespace rpman\interfaces;
+namespace rpman\Interfaces;
 
 /**
  * Level structure

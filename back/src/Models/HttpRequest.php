@@ -1,11 +1,10 @@
-<?php
-namespace rpman\objects;
+<?php namespace rpman\Models;
 
 /**
  * Get content from http post
- * @Observable
+ * @Observable - If this is changed notify Storage
  */
-class Http implements IObservable
+class HttpRequest
 {
     /**
      * Recieving content as Array from creator
@@ -14,17 +13,10 @@ class Http implements IObservable
      */
     private $content;
 
-    /**
-     * Sending content to game
-     *
-     * @var json
-     */
-    private $response;
-
     public function __construct()
     {
         header("Access-Control-Allow-Headers: Content-Type,Authorization");
-        header("Access-Control-Allow-Methods: POST, OPTIONS");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
         $this->setContent();
     }
@@ -49,13 +41,5 @@ class Http implements IObservable
         //let frontend know that its succesfull request
         print json_encode($_POST);
         $this->content = $_POST;
-    }
-
-    public function setResponse()
-    {
-    }
-
-    protected function getResponse()
-    {
     }
 }

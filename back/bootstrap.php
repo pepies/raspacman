@@ -1,16 +1,5 @@
 <?php
 
-//Composer
-
-include __DIR__ . '/vendor/autoload.php';
-
-use rpman\objects\Http;
-use rpman\objects\Level;
-use rpman\objects\Storage;
-
-
-// Doctrine
-
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 

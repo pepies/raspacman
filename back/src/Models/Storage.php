@@ -1,5 +1,5 @@
 <?php
-namespace rpman\objects;
+namespace rpman\Models;
 
 class Storage
 {
