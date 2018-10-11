@@ -14,7 +14,7 @@ class Create
         header("Access-Control-Allow-Headers: Content-Type,Authorization");
         header("Access-Control-Allow-Methods: POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
-        $this->getContent();
+        var_dump($this->getContent());
     }
 
     /**
