@@ -3,6 +3,7 @@ namespace API;
 
 /**
  * Get content from http post
+ * @Observable
  */
 class Create
 {
@@ -10,22 +11,32 @@ class Create
 
     public function __construct()
     {
-        /* HTTP config headers */
         header("Access-Control-Allow-Headers: Content-Type,Authorization");
         header("Access-Control-Allow-Methods: POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
-        $this->getContent();
+        $this->setContent();
     }
 
     /**
-     * Gets level as php object from http post
+    * Getter
+    *
+    * @return Array
+    */
+    public function getContent(): Array
+    {
+        return $this->$content;
+    }
+
+    /**
+     * Setter
      *
      * @return void
      */
-    private function getContent()
+    protected function setContent()
     {
+        //let frontend know that its succesfull request
         print json_encode($_POST);
-        return $_POST;
+        $this->content = $_POST;
     }
 }
 new \API\Create();
