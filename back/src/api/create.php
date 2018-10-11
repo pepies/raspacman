@@ -24,7 +24,7 @@ class Create
      */
     private function getContent()
     {
-        return (object)$_POST;
+        return $_POST;
     }
 }
 new \API\Create();

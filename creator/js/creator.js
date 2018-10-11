@@ -143,9 +143,8 @@ $('.save').click(function () {
 function sendToServer(data) {
     $.post('https://raspacman.brecska.sk/back/src/api/create.php',
     data,
-    function (response) {
-        console.info(response)
-        window.alert("Succesfully sent")
+    function () {
+        alert("Succesfully sent")
     },
     "json"
     )
