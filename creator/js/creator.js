@@ -146,7 +146,7 @@ function sendToServer(data) {
         .done(function () {
             alert("success");
         })
-        .fail(function () {
-            alert("error");
+        .fail(function (response) {
+            alert("error" + response.responseText);
         })
 }
