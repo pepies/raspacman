@@ -14,7 +14,8 @@ class Create
         header("Access-Control-Allow-Headers: Content-Type,Authorization");
         header("Access-Control-Allow-Methods: POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
-        var_dump($this->getContent());
+        $this->getContent();
+        var_dump($_POST);
     }
 
     /**
@@ -28,7 +29,7 @@ class Create
         $url = $protocol . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $parts = parse_url($url);
         parse_str($parts['query'], $query);
-        return $query;
+        return $query['json'];
     }
 }
 new \API\Create();
