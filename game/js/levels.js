@@ -45,7 +45,10 @@ function newLevel(setNew) {
 }
  
 function level_rand_db() {
-  
+  $.getJSON("https://raspacman.brecska.sk/back/src/api/get.php",
+    function (data) {
+        console.log(data);
+    })
 }
 
 function level_1() {

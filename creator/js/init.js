@@ -11,6 +11,7 @@ var diamanty = []
 var priserky = []
 
 var priserky_img = []
+
 //Vykreslovanie obrazku narazu
 var draw = false
 var rand = 0

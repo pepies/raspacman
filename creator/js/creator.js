@@ -128,7 +128,7 @@ $('.line').click(function () {
 
 $('.save').click(function () {
     $(this).addClass("active")    
-    json = {
+    sendToServer({
         priserky,
         coiny,
         diamanty,
@@ -137,8 +137,18 @@ $('.save').click(function () {
             x: lopta.x,
             y: lopta.y
         }
-    }
-    console.log(json)
-    console.log(diamanty)
-    window.alert("Succesfully sent")
+    })   
 })
+
+function sendToServer(data) {
+    $.ajax({
+        type: "POST",
+        url: 'https://raspacman.brecska.sk/back/src/api/create.php',
+        data: data,
+        success: function (response) {
+            console.table(response)
+            window.alert("Succesfully sent")
+        },
+        dataType: 'json'
+      });
+}
