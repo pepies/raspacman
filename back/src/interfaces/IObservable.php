@@ -1,5 +1,5 @@
 <?php
-namespace rpman;
+namespace rpman\interfaces;
 
 /**
  * Define function needed for implementation for Subject who is observed

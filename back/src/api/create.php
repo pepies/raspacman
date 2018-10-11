@@ -1,5 +1,7 @@
 <?php
 namespace rpman\api;
 
-$http = new rpman\objects\Http();
+use rpman\objects\Http;
+
+$http = new Http();
 echo $http->getContent();

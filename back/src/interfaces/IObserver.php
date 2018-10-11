@@ -1,5 +1,5 @@
 <?php
-namespace rpman;
+namespace rpman\interfaces;
 
 interface Observer
 {
