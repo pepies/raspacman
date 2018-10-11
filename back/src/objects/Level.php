@@ -17,19 +17,39 @@ class Level implements \API\ILevel
         return $this->id;
     }
 
+    // Lines
     public function getLines()
     {
     }
+    public function setLines()
+    {
+    }
+    // Monsters
     public function getMonsters()
     {
     }
+    public function setMonsters()
+    {
+    }
+    // Diamonds
     public function getDiamonds()
     {
     }
+    public function setDiamonds()
+    {
+    }
+    // Coins
     public function getCoins()
     {
     }
+    public function setCoins()
+    {
+    }
+    // Strarting position
     public function getStratingPos()
+    {
+    }
+    public function setStratingPos()
     {
     }
 }

@@ -15,21 +15,16 @@ class Create
         header("Access-Control-Allow-Methods: POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
         $this->getContent();
-        var_dump($_POST);
     }
 
     /**
-     * Gets level as json object from http post
+     * Gets level as php object from http post
      *
      * @return void
      */
     private function getContent()
     {
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-        $url = $protocol . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        $parts = parse_url($url);
-        parse_str($parts['query'], $query);
-        return $query['json'];
+        return (object)$_POST;
     }
 }
 new \API\Create();

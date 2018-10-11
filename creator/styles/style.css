@@ -39,12 +39,12 @@ div.controls {
 }
 
 div div {
+    cursor: pointer;
     border: 1px solid #360259;
     background-color: rgba(54, 2, 89, 0.5);
     float: left;
     margin-left: 30px;
     padding: 20px;
-    cursor: pointer;
 }
 div div img {
     height: 30px;

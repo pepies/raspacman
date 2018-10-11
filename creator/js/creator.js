@@ -141,14 +141,12 @@ $('.save').click(function () {
 })
 
 function sendToServer(data) {
-    $.ajax({
-        type: "POST",
-        url: 'https://raspacman.brecska.sk/back/src/api/create.php',
-        data: data,
-        success: function (response) {
-            console.table(response)
-            window.alert("Succesfully sent")
-        },
-        dataType: 'json'
-      });
+    $.post('https://raspacman.brecska.sk/back/src/api/create.php',
+    data,
+    function (response) {
+        console.info(response)
+        window.alert("Succesfully sent")
+    },
+    "json"
+    )
 }
