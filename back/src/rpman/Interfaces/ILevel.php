@@ -1,5 +1,5 @@
 <?php
-namespace API;
+namespace rpman;
 
 /**
  * Level structure

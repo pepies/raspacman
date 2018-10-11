@@ -1,6 +1,6 @@
 <?php
 // require_once "bootstrap.php";
-namespace API;
+namespace rpman;
 
 class Storage
 {

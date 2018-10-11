@@ -4,6 +4,8 @@
         "symfony/yaml": "*"
     },
     "autoload": {
-        "psr-0": {"": "src/"}
+        "psr-4": {
+            "rpman\\": "src"
+        }
     }
 }

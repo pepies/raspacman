@@ -1,13 +1,25 @@
 <?php
-namespace API;
+namespace rpman\objects;
 
 /**
  * Get content from http post
  * @Observable
  */
-class Create
+class Http implements IObservable
 {
+    /**
+     * Recieving content as Array from creator
+     *
+     * @var Array
+     */
     private $content;
+
+    /**
+     * Sending content to game
+     *
+     * @var json
+     */
+    private $response;
 
     public function __construct()
     {
@@ -22,7 +34,7 @@ class Create
     *
     * @return Array
     */
-    public function getContent(): Array
+    public function getContent(): array
     {
         return $this->$content;
     }
@@ -38,5 +50,12 @@ class Create
         print json_encode($_POST);
         $this->content = $_POST;
     }
+
+    public function setResponse()
+    {
+    }
+
+    protected function getResponse()
+    {
+    }
 }
-new \API\Create();

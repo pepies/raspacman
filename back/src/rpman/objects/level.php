@@ -1,14 +1,14 @@
 <?php
-namespace API;
+namespace rpman;
 
 /**
  * @Entity @Table(name="levels")
  **/
-class Level implements \API\ILevel
+class Level implements ILevel
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
-    protected $id;
-    
+    // protected $id;
+
     /** @Column(type="string") **/
     protected $json;
 

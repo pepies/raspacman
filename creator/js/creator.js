@@ -93,34 +93,34 @@ $("#canvas_id").click(function () {
 
 $('.monster_v').click(function () {
     selected = "add_monster_v"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 
 $('.monster_h').click(function () {
     selected = "add_monster_h"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 
 $('.starting_pos').click(function () {
     selected = "change_starting_pos"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 $('.diamant').click(function () {
     selected = "add_diamant"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 $('.coin').click(function () {
     selected = "add_coin"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 $('.line').click(function () {
     selected = "add_line"
-    $("div").removeClass('active');
+    $("div").removeClass('active')
     $(this).addClass("active")
 })
 
@@ -146,8 +146,9 @@ function sendToServer(data) {
         url: 'https://raspacman.brecska.sk/back/src/api/create.php',
         data: data,
         success: function (response) {
-            console.table(response)
+            console.log(response)
             window.alert("Succesfully sent")
+            window.history.back()
         },
         error: function () {
             window.alert("error")
