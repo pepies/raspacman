@@ -44,12 +44,12 @@ function add_coin(x, y) {
 let lineStart;
 function start_line(x, y) {
     $(".controls").hide();
-    lineStart = {x, y}
+    lineStart = { x, y }
 }
 
 function end_line(x, y) {
     $(".controls").show();
-    pridaj_ciaru(lineStart.x, lineStart.y, x-lineStart.x, y-lineStart.y)
+    pridaj_ciaru(lineStart.x, lineStart.y, x - lineStart.x, y - lineStart.y)
     lineStart = null;
 }
 
@@ -69,7 +69,7 @@ $("#canvas_id").click(function () {
             add_monster_v(coords.x, coords.y)
             break;
         case "change_starting_pos":
-        change_starting_pos(coords.x, coords.y)
+            change_starting_pos(coords.x, coords.y)
             break;
         case "add_diamant":
             add_diamant(coords.x, coords.y)
@@ -127,7 +127,7 @@ $('.line').click(function () {
 // handle send function
 
 $('.save').click(function () {
-    $(this).addClass("active")    
+    $(this).addClass("active")
     sendToServer({
         priserky,
         coiny,
@@ -137,15 +137,16 @@ $('.save').click(function () {
             x: lopta.x,
             y: lopta.y
         }
-    })   
+    })
 })
 
 function sendToServer(data) {
     $.post('https://raspacman.brecska.sk/back/src/api/create.php',
-    data,
-    function () {
-        alert("Succesfully sent")
-    },
-    "json"
-    )
+        data, null, "json")
+        .done(function () {
+            alert("success");
+        })
+        .fail(function () {
+            alert("error");
+        })
 }
