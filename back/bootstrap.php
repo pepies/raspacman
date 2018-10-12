@@ -15,4 +15,4 @@ $conn = array(
     'path' => __DIR__ . '/db.sqlite',
     'driver' => 'pdo_sqlite'
 );
-$entityManager = EntityManager::create($conn, $config);
+$em = EntityManager::create($conn, $config);

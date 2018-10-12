@@ -15,6 +15,6 @@ class HttpResponse
      
     public function response(json $data)
     {
-        echo $data;
+        die($this->$response = $data);
     }
 }

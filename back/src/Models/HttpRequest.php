@@ -2,7 +2,6 @@
 
 /**
  * Get content from http post
- * @Observable - If this is changed notify Storage
  */
 class HttpRequest
 {
@@ -38,7 +37,7 @@ class HttpRequest
      */
     protected function setContent()
     {
-        //let frontend know that its succesfull request
+        //let frontend know that is a succesfull request
         print json_encode($_POST);
         $this->content = $_POST;
     }

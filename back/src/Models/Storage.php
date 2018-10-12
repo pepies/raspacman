@@ -13,8 +13,6 @@ class Storage
     {
         $entityManager->persist($level);
         $entityManager->flush();
-        
-        // echo "Created Level with ID " . $product->getId() . "\nand name: " . $product->getName() . "\n";
     }
 
     public function list()
