@@ -26,7 +26,7 @@ class HttpRequest
     *
     * @return Array
     */
-    public function getContent(): array
+    public function getContent(): ?array
     {
         return $this->$content;
     }
@@ -43,7 +43,6 @@ class HttpRequest
         }
         $this->content = $_POST;
         //let creator know that is a succesfull request
-        print gettype($this->content);
-        // print json_encode($this->content);
+        print json_encode($this->content);
     }
 }
