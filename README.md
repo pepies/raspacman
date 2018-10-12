@@ -1,26 +1,28 @@
-## Raspacman simple JS-canvas game
+## Raspacman simple game
 
-To be seen: http://peter.brecska.sk/hra/   
-_Gameplay:_ mobile Swipes / arrows / WASD
+To be seen: http://raspacman.brecska.sk/  
 
-- School project
+## TODO:
+- refactor to english
 
 v0.0
-    zaklad
+    basics
 v0.1
-    opravil som bug prechadzania cez stenu
+    bug with jumping to moving
 v0.2
-    pridal som novy level cez swich
+    new lelev
 v0.3 
-  grafika
+  graphics
 v0.4
   sounds + levels
 v0.5
-  robím na touch controls pre dotykové displaye
+  touch controls support
 v0.6
-  robím na úvodnej obrazovke
+  welcome screen
 v0.7
-  opravil som niektoré bugy, no objavili sa nové
-  stále neviem opraviť tie nové bugy
+  bugy, just bugs
 v1.0
-  pridávam backend
+  add backend standing on Doctrine ORM
+
+_Gameplay:_ mobile Swipes / arrows / WASD
+_Powered by:_ app.buddy.works
