@@ -1,7 +1,7 @@
 <?php namespace rpman\Models;
 
 /**
- * @Entity @Table(name="levels")
+ * @Entity @Table(name="lines")
  **/
 class Line
 {
@@ -23,4 +23,22 @@ class Line
 
     /** $end_y @Column(type="integer") */
     private $end_y;
+
+    public function getCoordinates()
+    {
+        return [
+            $this->start_x,
+            $this->start_y,
+            $this->end_x,
+            $this->end_y
+        ];
+    }
+
+    public function setCoordinates(int $start_x, int $start_y, int $end_x, int $end_y)
+    {
+        $this->start_x = $start_x;
+        $this->start_y = $start_y;
+        $this->end_x = $end_x;
+        $this->end_y = $end_y;
+    }
 }

@@ -148,7 +148,7 @@ function sendToServer(data) {
         success: function (response) {
             console.log(response)
             window.alert("Succesfully sent")
-            window.history.back()
+            // window.history.back()
         },
         error: function () {
             window.alert("error")

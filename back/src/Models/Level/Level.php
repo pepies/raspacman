@@ -14,7 +14,7 @@ class Level implements ILevel
     protected $id;
 
     /**
-     * One LEvel has One Character.
+     * One Level has One Character.
      * @OneToOne(targetEntity="Character")
      * @JoinColumn(name="Character_id", referencedColumnName="id")
      */
