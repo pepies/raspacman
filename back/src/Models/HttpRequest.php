@@ -19,7 +19,7 @@ class HttpRequest
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
         if (!is_array($_POST)) {
-            die("Post content is not an array: "+gettype($_POST));
+            die("Post content is not an array: ".gettype($_POST));
         }
         $this->content = $_POST;
         //let frontend creator know that is a succesfull request
