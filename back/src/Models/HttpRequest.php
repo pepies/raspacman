@@ -31,8 +31,8 @@ class HttpRequest
     *
     * @return Array
     */
-    public function getContent()
+    public function getContent(): ?array
     {
-        return $this->$content;
+        return $this->content;
     }
 }
