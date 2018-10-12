@@ -18,7 +18,7 @@ class HttpRequest
         header("Access-Control-Allow-Headers: Content-Type,Authorization");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
         header("Access-Control-Allow-Origin: *");
-        if (!is_array($_POST)) {
+        if (!is_array($_POST) || null) {
             die("Post content is not an array: ".gettype($_POST));
         }
         $this->content = $_POST;
