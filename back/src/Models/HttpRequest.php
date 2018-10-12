@@ -29,7 +29,7 @@ class HttpRequest
     */
     public function getContent(): ?array
     {
-        return $this::content;
+        return $this::$content;
     }
 
     /**
@@ -42,8 +42,8 @@ class HttpRequest
         if (!is_array($_POST) || null) {
             die("Post content is not an array: ".gettype($_POST));
         }
-        $this::content = $_POST;
+        $this::$content = $_POST;
         //let frontend creator know that is a succesfull request
-        print json_encode($this::content);
+        print json_encode($this::$content);
     }
 }
