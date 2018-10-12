@@ -1,6 +1,6 @@
 <?php namespace rpman\Models;
 
-final class Parse
+class Parse
 {
     /*EXPECT:
     {
