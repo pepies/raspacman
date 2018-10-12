@@ -1,5 +1,4 @@
-<?php
-namespace rpman\Models;
+<?php namespace rpman\Models\Level;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -7,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @Entity @Table(name="levels")
  **/
-class Level implements ILevel
+class Level implements \rpman\Interfaces\ILevel
 {
       
     /** @Id @Column(type="integer") @GeneratedValue **/
@@ -54,6 +53,7 @@ class Level implements ILevel
         $this->monsters = new ArrayCollection();
         $this->diamonds = new ArrayCollection();
         $this->coins = new ArrayCollection();
+        $this->character = new \rpman\Models\Level\Character();
     }
 
     public function getId()
@@ -61,27 +61,56 @@ class Level implements ILevel
         return $this->id;
     }
 
-    // Lines
-    public function getLines()
+    //character
+    public function getCharacter(): ArrayCollection
     {
-        $this->lines;
+        return $this->character;
+    }
+    public function setCharacter(int $x, int $y)
+    {
+        $this->character->setStratingPos($x, $y);
+    }
+
+    // Lines
+    public function getLines(): ArrayCollection
+    {
+        return  $this->lines;
+    }
+
+    public function addLine(Line $line)
+    {
+        $this->lines->add($line);
     }
     
     // Monsters
-    public function getMonsters()
+    public function getMonsters(): ArrayCollection
     {
-        $this->monsters;
+        return $this->monsters;
+    }
+
+    public function addMonster(Monster $monster)
+    {
+        $this->monsters->add($monster);
     }
     
     // Diamonds
-    public function getDiamonds()
+    public function getDiamonds(): ArrayCollection
     {
-        $this->diamonds;
+        return $this->diamonds;
+    }
+
+    public function addDiamond(Diamond $diamond)
+    {
+        $this->diamonds->add($diamond);
     }
     
     // Coins
-    public function getCoins()
+    public function getCoins(): ArrayCollection
     {
-        $this->coins;
+        return  $this->coins;
+    }
+    public function addCoin(Coin $coin)
+    {
+        $this->coins->add($coin);
     }
 }

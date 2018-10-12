@@ -1,4 +1,4 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Level;
 
 use \rpman\Interfaces\IHasPosition;
 
@@ -7,11 +7,19 @@ use \rpman\Interfaces\IHasPosition;
  **/
 class Diamond implements IHasPosition
 {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+
     /** $x @Column(type="integer") */
     private $x;
 
     /** $y @Column(type="integer") */
     private $y;
+
+    public function __construct(int $x, int $y)
+    {
+        $this->setPosition($x, $y);
+    }
 
     public function getX(): int
     {

@@ -1,16 +1,12 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Level;
 
 /**
  * @Entity @Table(name="lines")
  **/
 class Line
 {
-    /**
-     * Many Lines have (belongs to) One Level.
-     * @ManyToOne(targetEntity="LEvel", inversedBy="lines")
-     * @JoinColumn(name="product_id", referencedColumnName="id")
-     */
-    private $level;
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
 
     /** $start_x @Column(type="integer") */
     private $start_x;
@@ -23,6 +19,15 @@ class Line
 
     /** $end_y @Column(type="integer") */
     private $end_y;
+
+    public function __construct(
+        int $start_x,
+        int $start_y,
+        int $end_x,
+        int $end_y
+    ) {
+        $this->setCoordinates($start_x, $start_y, $end_x, $end_y);
+    }
 
     public function getCoordinates()
     {

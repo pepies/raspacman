@@ -7,11 +7,9 @@ namespace rpman\Interfaces;
  */
 interface ILevel
 {
+    public function getCharacter();
     public function getLines();
     public function getMonsters();
     public function getDiamonds();
     public function getCoins();
-    public function getStratingPos();
-    
-    public function setStratingPos(int $x, int $y);
 }

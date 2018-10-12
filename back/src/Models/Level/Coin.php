@@ -1,17 +1,25 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Level;
 
 use \rpman\Interfaces\IHasPosition;
 
 /**
  * @Entity @Table(name="coins")
  **/
-class Diamond implements IHasPosition
+class Coin implements IHasPosition
 {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+
     /** $x @Column(type="integer") */
     private $x;
 
     /** $y @Column(type="integer") */
     private $y;
+
+    public function __construct(int $x, int $y)
+    {
+        $this->setPosition($x, $y);
+    }
 
     public function getX(): int
     {
@@ -23,7 +31,7 @@ class Diamond implements IHasPosition
         return $this->y;
     }
 
-    public function setPosition(int $x, int $y)
+    protected function setPosition(int $x, int $y)
     {
         $this->x = $x;
         $this->y = $y;

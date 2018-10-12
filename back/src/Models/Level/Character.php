@@ -1,4 +1,4 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Level;
 
 use \rpman\Interfaces\IHasPosition;
 
@@ -7,6 +7,9 @@ use \rpman\Interfaces\IHasPosition;
  **/
 class Character implements IHasPosition
 {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    protected $id;
+
     /** $x @Column(type="integer") */
     private $x;
 
@@ -21,6 +24,11 @@ class Character implements IHasPosition
     public function getY(): int
     {
         return $this->y;
+    }
+
+    public function __construct(int $x = 50, int $y = 50)
+    {
+        $this->setStratingPos($x, $y);
     }
 
     public function setStratingPos(int $x, int $y)
