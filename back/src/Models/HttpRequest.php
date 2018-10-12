@@ -37,6 +37,9 @@ class HttpRequest
      */
     protected function setContent()
     {
+        if (!is_array($_POST)) {
+            die("post is not aray: "+gettype($_POST));
+        }
         $this->content = $_POST;
         //let frontend know that is a succesfull request
         print json_encode($_POST);
