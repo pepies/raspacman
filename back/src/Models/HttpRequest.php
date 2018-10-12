@@ -2,6 +2,7 @@
 
 /**
  * Get content from http post
+ * Instance must be created before any conten is printed
  */
 class HttpRequest
 {
@@ -38,10 +39,10 @@ class HttpRequest
     protected function setContent()
     {
         if (!is_array($_POST)) {
-            die("post is not aray: "+gettype($_POST));
+            die("Post content is not array: "+gettype($_POST));
         }
         $this->content = $_POST;
-        //let frontend know that is a succesfull request
-        print json_encode($_POST);
+        //let creator know that is a succesfull request
+        print json_encode($this->content);
     }
 }
