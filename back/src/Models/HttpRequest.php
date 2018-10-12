@@ -44,6 +44,6 @@ class HttpRequest
         }
         $this::$content = $_POST;
         //let frontend creator know that is a succesfull request
-        print json_encode($this::$content);
+        print $this::$content;
     }
 }
