@@ -37,8 +37,8 @@ class HttpRequest
      */
     protected function setContent()
     {
+        $this->content = $_POST;
         //let frontend know that is a succesfull request
         print json_encode($_POST);
-        $this->content = $_POST;
     }
 }
