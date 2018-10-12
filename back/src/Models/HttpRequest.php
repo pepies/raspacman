@@ -22,7 +22,7 @@ class HttpRequest
     }
 
     /**
-    * Getter
+    * Gets array recived by POST http request
     *
     * @return Array
     */
@@ -39,10 +39,11 @@ class HttpRequest
     protected function setContent()
     {
         if (!is_array($_POST)) {
-            die("Post content is not array: "+gettype($_POST));
+            die("Post content is not an array: "+gettype($_POST));
         }
         $this->content = $_POST;
         //let creator know that is a succesfull request
-        print json_encode($this->content);
+        print gettype($this->content);
+        // print json_encode($this->content);
     }
 }
