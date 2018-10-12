@@ -8,7 +8,9 @@ use \rpman\Models\Storage;
 //get http data from post content
 $http = new HttpRequest();
 $levelArray = $http->getContent();
-echo "test:".gettype($levelArray);
 
+//parse array to Level object
+
+//store it
 // $storage = new Storage();
 // $storage->store($level);

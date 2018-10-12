@@ -11,5 +11,7 @@ interface ILevel
     public function getMonsters();
     public function getDiamonds();
     public function getCoins();
-    public function getStratingPos(int $x, int $y);
+    public function getStratingPos();
+    
+    public function setStratingPos(int $x, int $y);
 }
