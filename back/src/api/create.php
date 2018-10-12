@@ -11,8 +11,7 @@ $http = new HttpRequest();
 $levelArray = $http->getContent();
 
 //parse array to Level object
-$Array = new Parse($levelArray);
-// $Array->toLevelObject();
+$levelObj = Parse($levelArray)::toLevelObject();
 //store it
 // $storage = new Storage();
 // $storage->store($level);

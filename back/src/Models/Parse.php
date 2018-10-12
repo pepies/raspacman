@@ -49,7 +49,7 @@ final class Parse
     public function __construct(array $httpResponse)
     {
         $this->httpResponse = $httpResponse;
-        var_dump(arrayOfCoins($httpResponse));
+        var_dump($this->arrayOfCoins($httpResponse));
     }
 
     public function toLevelObject(): Level
