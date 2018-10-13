@@ -8,16 +8,29 @@ use Doctrine\ORM\Mapping as ORM;
  **/
 class Monster implements IHasPosition
 {
-    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
+    /** @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue **/
     protected $id;
 
-    /** $x @ORM\Column(type="integer") */
+    /**
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="monsters")
+     */
+    private $level;
+
+    /** $x
+    * @ORM\Column(type="integer")
+    */
     private $x;
 
-    /** $y @ORM\Column(type="integer") */
+    /** $y
+    * @ORM\Column(type="integer")
+    */
     private $y;
 
-    /** $y @ORM\Column(type="string") */
+    /** $y
+    * @ORM\Column(type="string")
+    */
     private $direction;
 
     public function __construct(int $x, int $y, string $direction)
@@ -50,5 +63,10 @@ class Monster implements IHasPosition
     protected function setDirection(string $direction)
     {
         $this->direction = $direction;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
     }
 }

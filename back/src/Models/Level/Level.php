@@ -3,7 +3,6 @@
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use \rpman\Models\Level\Character;
 
 /**
  * @ORM\Entity
@@ -20,46 +19,48 @@ class Level implements \rpman\Interfaces\ILevel
     protected $id;
 
     /**
-     * One Level has One Character.
-     * @ORM\OneToOne(targetEntity="Character")
+     * One Level has One Player Character.
+     * @var Character
+     * @ORM\OneToOne(targetEntity="Character", cascade={"all"})
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", nullable=false)
      */
     protected $character;
 
     /**
      * One level have Many lines.
      * @var Collection
-     * @ORM\ManyToOne(targetEntity="Line")
+     * @ORM\OneToMany(targetEntity="Line", mappedBy="level", cascade={"all"})
      */
     protected $lines;
 
     /**
      * One level have Many monsters.
      * @var Collection
-     * @ORM\ManyToOne(targetEntity="Monster")
+     * @ORM\OneToMany(targetEntity="Monster", mappedBy="level", cascade={"all"})
      */
     protected $monsters;
 
     /**
     * One level have Many diamonds.
     * @var Collection
-    * @ORM\ManyToOne(targetEntity="Diamond")
+    * @ORM\OneToMany(targetEntity="Diamond", mappedBy="level", cascade={"all"})
     */
     protected $diamonds;
 
     /**
      * One level have Many coins.
      * @var Collection
-     * @ORM\ManyToOne(targetEntity="Coin")
+     * @ORM\OneToMany(targetEntity="Coin", mappedBy="level", cascade={"all"})
      */
     protected $coins;
 
     public function __construct()
     {
-        $this->lines = new ArrayCollection();
-        $this->monsters = new ArrayCollection();
-        $this->diamonds = new ArrayCollection();
-        $this->coins = new ArrayCollection();
-        $this->character = new Character();
+        $this->lines = new ArrayCollection;
+        $this->monsters = new ArrayCollection;
+        $this->diamonds = new ArrayCollection;
+        $this->coins = new ArrayCollection;
+        $this->character = new Character;
     }
 
     public function getId()
@@ -86,6 +87,7 @@ class Level implements \rpman\Interfaces\ILevel
     public function addLine(Line $line)
     {
         $this->lines->add($line);
+        $line->setLevel($this);
     }
     
     // Monsters
@@ -97,6 +99,7 @@ class Level implements \rpman\Interfaces\ILevel
     public function addMonster(Monster $monster)
     {
         $this->monsters->add($monster);
+        $monster->setLevel($this);
     }
     
     // Diamonds
@@ -108,6 +111,7 @@ class Level implements \rpman\Interfaces\ILevel
     public function addDiamond(Diamond $diamond)
     {
         $this->diamonds->add($diamond);
+        $diamond->setLevel($this);
     }
     
     // Coins
@@ -118,5 +122,6 @@ class Level implements \rpman\Interfaces\ILevel
     public function addCoin(Coin $coin)
     {
         $this->coins->add($coin);
+        $coin->setLevel($this);
     }
 }

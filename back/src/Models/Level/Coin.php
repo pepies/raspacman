@@ -8,13 +8,27 @@ use Doctrine\ORM\Mapping as ORM;
  **/
 class Coin implements IHasPosition
 {
-    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    **/
     protected $id;
 
-    /** $x @ORM\Column(type="integer") */
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="coins")
+     */
+    private $level;
+
+    /** $x
+    * @ORM\Column(type="integer")
+    */
     private $x;
 
-    /** $y @ORM\Column(type="integer") */
+    /** $y
+    * @ORM\Column(type="integer")
+    */
     private $y;
 
     public function __construct(int $x, int $y)
@@ -36,5 +50,10 @@ class Coin implements IHasPosition
     {
         $this->x = $x;
         $this->y = $y;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
     }
 }

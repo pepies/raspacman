@@ -3,23 +3,41 @@
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity @ORM\Table(name="lines")
+ * Inversed side for Level
+ * @ORM\Entity
+ * @ORM\Table(name="lines")
  **/
 class Line
 {
-    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
+    /** @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    **/
     protected $id;
 
-    /** $start_x @ORM\Column(type="integer") */
+    /**
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="lines")
+     */
+    private $level;
+
+    /** $start_x
+    * @ORM\Column(type="integer")
+    */
     private $start_x;
 
-    /** $start_y @ORM\Column(type="integer") */
+    /** $start_y
+    * @ORM\Column(type="integer")
+    */
     private $start_y;
 
-    /** $end_x @ORM\Column(type="integer") */
+    /** $end_x
+    * @ORM\Column(type="integer")
+    */
     private $end_x;
 
-    /** $end_y @ORM\Column(type="integer") */
+    /** $end_y
+    * @ORM\Column(type="integer")
+    */
     private $end_y;
 
     public function __construct(
@@ -47,5 +65,10 @@ class Line
         $this->start_y = $start_y;
         $this->end_x = $end_x;
         $this->end_y = $end_y;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
     }
 }

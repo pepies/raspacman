@@ -1,7 +1,7 @@
 <?php
 namespace rpman\Models;
 
-use rpman\Models\Level\Level as Level;
+use rpman\Models\Level\Level;
 use Doctrine\ORM\EntityManager;
 
 class Storage

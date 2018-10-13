@@ -11,6 +11,11 @@ class Diamond implements IHasPosition
     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="diamonds")
+     */
+    private $level;
+
     /** $x @ORM\Column(type="integer") */
     private $x;
 
@@ -36,5 +41,10 @@ class Diamond implements IHasPosition
     {
         $this->x = $x;
         $this->y = $y;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
     }
 }
