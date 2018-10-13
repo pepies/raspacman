@@ -2,7 +2,6 @@
 
 /**
  * Get content from http post
- * @Observable - If this is changed notify Storage
  */
 class HttpResponse
 {

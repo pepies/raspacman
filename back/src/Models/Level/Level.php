@@ -2,48 +2,54 @@
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use \rpman\Models\Level\Character;
 
 /**
- * @Entity @Table(name="levels")
+ * @ORM\Entity
+ * @ORM\Table(name="levels")
  **/
 class Level implements \rpman\Interfaces\ILevel
 {
       
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    **/
     protected $id;
 
     /**
      * One Level has One Character.
-     * @OneToOne(targetEntity="Character")
-     * @JoinColumn(name="Character_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Character")
      */
     protected $character;
 
     /**
      * One level have Many lines.
      * @var Collection
-     * @OneToMany(targetEntity="Line", mappedBy="level")
+     * @ORM\ManyToOne(targetEntity="Line")
      */
     protected $lines;
 
     /**
      * One level have Many monsters.
      * @var Collection
-     * @OneToMany(targetEntity="Monster", mappedBy="level")
+     * @ORM\ManyToOne(targetEntity="Monster")
      */
     protected $monsters;
 
     /**
     * One level have Many diamonds.
     * @var Collection
-    * @OneToMany(targetEntity="Diamond", mappedBy="level")
+    * @ORM\ManyToOne(targetEntity="Diamond")
     */
     protected $diamonds;
 
     /**
      * One level have Many coins.
      * @var Collection
-     * @OneToMany(targetEntity="Coin", mappedBy="level")
+     * @ORM\ManyToOne(targetEntity="Coin")
      */
     protected $coins;
 
@@ -53,7 +59,7 @@ class Level implements \rpman\Interfaces\ILevel
         $this->monsters = new ArrayCollection();
         $this->diamonds = new ArrayCollection();
         $this->coins = new ArrayCollection();
-        $this->character = new \rpman\Models\Level\Character();
+        $this->character = new Character();
     }
 
     public function getId()

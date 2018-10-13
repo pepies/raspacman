@@ -1,19 +1,20 @@
 <?php namespace rpman\Models\Level;
 
 use \rpman\Interfaces\IHasPosition;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Entity @Table(name="diamonds")
+ * @ORM\Entity @ORM\Table(name="diamonds")
  **/
 class Diamond implements IHasPosition
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
 
-    /** $x @Column(type="integer") */
+    /** $x @ORM\Column(type="integer") */
     private $x;
 
-    /** $y @Column(type="integer") */
+    /** $y @ORM\Column(type="integer") */
     private $y;
 
     public function __construct(int $x, int $y)

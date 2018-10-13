@@ -1,23 +1,25 @@
 <?php namespace rpman\Models\Level;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @Entity @Table(name="lines")
+ * @ORM\Entity @ORM\Table(name="lines")
  **/
 class Line
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
 
-    /** $start_x @Column(type="integer") */
+    /** $start_x @ORM\Column(type="integer") */
     private $start_x;
 
-    /** $start_y @Column(type="integer") */
+    /** $start_y @ORM\Column(type="integer") */
     private $start_y;
 
-    /** $end_x @Column(type="integer") */
+    /** $end_x @ORM\Column(type="integer") */
     private $end_x;
 
-    /** $end_y @Column(type="integer") */
+    /** $end_y @ORM\Column(type="integer") */
     private $end_y;
 
     public function __construct(

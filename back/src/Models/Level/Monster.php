@@ -1,22 +1,23 @@
 <?php namespace rpman\Models\Level;
 
 use \rpman\Interfaces\IHasPosition;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Entity @Table(name="levels")
+ * @ORM\Entity @ORM\Table(name="monsters")
  **/
 class Monster implements IHasPosition
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
     protected $id;
 
-    /** $x @Column(type="integer") */
+    /** $x @ORM\Column(type="integer") */
     private $x;
 
-    /** $y @Column(type="integer") */
+    /** $y @ORM\Column(type="integer") */
     private $y;
 
-    /** $y @Column(type="string") */
+    /** $y @ORM\Column(type="string") */
     private $direction;
 
     public function __construct(int $x, int $y, string $direction)

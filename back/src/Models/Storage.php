@@ -2,31 +2,18 @@
 namespace rpman\Models;
 
 use rpman\Models\Level\Level as Level;
-use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 class Storage
 {
     private $em;
 
-    public function __construct()
+    public function __construct(EntityManager $em)
     {
-        $isDevMode = true;
-        $config = Setup::createAnnotationMetadataConfiguration(
-            array(__DIR__."/src"),
-            $isDevMode
-        );
-
-        $conn = array(
-            'user' => 'user',
-            'password' => 'secret',
-            'path' => __DIR__ . '/db.sqlite',
-            'driver' => 'pdo_sqlite'
-        );
-        $this->em = EntityManager::create($conn, $config);
+        $this->em = $em;
     }
     /**
-    * Store user created and validated level
+    * Store user created *and validated* level
     *
     * @param Level $level
     * @return void
