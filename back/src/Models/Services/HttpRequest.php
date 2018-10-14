@@ -1,4 +1,4 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Services;
 
 /**
  * Get content from http post
@@ -65,37 +65,25 @@ class HttpRequest
      */
     private static $content;
 
-    public function __construct()
-    {
-        header("Access-Control-Allow-Headers: Content-Type,Authorization");
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-        header("Access-Control-Allow-Origin: *");
-        $this->setContent();
-    }
-
     /**
     * Gets array recived by POST http request
     *
     * @return Array
     */
-    public function getContent(): ?array
+    public static function getContent(): ?array
     {
-        return $this::$content;
-    }
-
-    /**
-     * Read http response content and sets it to $content
-     *
-     * @return void
-     */
-    protected function setContent()
-    {
-        if (!is_array($_POST) || null) {
-            die("Post content is not an array: ".gettype($_POST));
+        if (!headers_sent()) {
+            header("Access-Control-Allow-Headers: Content-Type,Authorization");
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+            header("Access-Control-Allow-Origin: *");
+            if (!is_array($_POST) || null) {
+                die("Post content is not an array: ".gettype($_POST));
+            }
+            self::$content = $_POST;
+            //let frontend creator know that is a succesfull request
+            // var_export($this::$content);
+            print json_encode(self::$content);
         }
-        $this::$content = $_POST;
-        //let frontend creator know that is a succesfull request
-        // var_export($this::$content);
-        print json_encode($this::$content);
+        return self::$content;
     }
 }
