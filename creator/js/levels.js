@@ -6,7 +6,7 @@ function clear_gameboard() {
   pridaj_ciaru(0, 600, 1200, 5)
   pridaj_ciaru(0, 0, 1200, 5)
   pridaj_ciaru(0, 0, 5, 600)
-  pridaj_ciaru(1199, 0, 1, 600)
+  // pridaj_ciaru(1199, 0, 1, 600)
 }
 
 /**

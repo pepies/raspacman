@@ -5,24 +5,26 @@ To be seen: http://raspacman.brecska.sk/
 ## TODO:
 - refactor to english
 
-v0.0
-    basics
-v0.1
-    bug with jumping to moving
-v0.2
-    new lelev
-v0.3 
-  graphics
-v0.4
-  sounds + levels
-v0.5
-  touch controls support
-v0.6
-  welcome screen
-v0.7
-  bugy, just bugs
-v1.0
-  add backend standing on Doctrine ORM
-
-_Gameplay:_ mobile Swipes / arrows / WASD
+_v0.0_   
+  -  basics   
+_v0.1_   
+  -  bug with jumping to moving   
+_v0.2_   
+  -  new lelev   
+_v0.3_    
+  - graphics   
+_v0.4_   
+  - sounds + levels   
+_v0.5_   
+  - touch controls support   
+_v0.6_   
+  - welcome screen   
+_v0.7_   
+  - bugs, just bugs   
+_v1.0_   
+  - add backend standing on Doctrine ORM   
+_v1.1_
+  - random levels from users, wiii
+   
+_Gameplay:_ mobile Swipes / arrows / WASD   
 _Powered by:_ app.buddy.works

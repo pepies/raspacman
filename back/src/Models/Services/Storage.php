@@ -1,6 +1,8 @@
 <?php
 namespace rpman\Models\Services;
 
+include("../../../creditials.php");
+
 use rpman\Models\Entities\Level as Level;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
@@ -22,8 +24,10 @@ class Storage
         );
 
         $conn = array(
-            /* back */  'path' => __DIR__ . '/../../../db.sqlite',
-                        'driver' => 'pdo_sqlite'
+            'user' => USERNAME,
+            'password'=>PASSWORD,
+            'path' => PATH,
+            'driver' => DRIVER
         );
         $this->em = EntityManager::create($conn, $config);
         //debug

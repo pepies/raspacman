@@ -43,12 +43,37 @@ function newLevel(setNew) {
     level_rand_db()
   }
 }
- 
+
 function level_rand_db() {
-  $.getJSON("https://raspacman.brecska.sk/back/src/api/get.php",
-    function (data) {
-        console.log(data);
-    })
+  clear_gameboard()
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "https://raspacman.brecska.sk/back/src/api/get.php",
+    success: function (result) {
+      lopta.x = result[0].character.x
+      lopta.y = result[0].character.y
+      $.each( result[0].lines, function (index) {
+        let l = result[0].lines[index];
+        pridaj_ciaru(l.start_x, l.start_y, l.end_x, l.end_y)
+      })
+      $.each( result[0].monsters, function (index) {
+        let m = result[0].monsters[index];
+        pridaj_priserku(m.x, m.y, m.direction)
+      })
+      $.each( result[0].diamonds, function (index) {
+        let d = result[0].diamonds[index];
+        pridaj_diamant(d.x, d.y)
+      })
+      $.each( result[0].coins, function (index) {
+        let c = result[0].coins[index];
+        pridaj_diamant(c.x, c.y)
+      })
+    },
+    error: function () {
+      console.log('error getting level')
+    }
+  })
 }
 
 function level_1() {

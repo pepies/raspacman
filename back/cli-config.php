@@ -1,6 +1,7 @@
 <?php
 // cli-config.php
 require_once "bootstrap.php";
+include("./creditials.php");
 
 // bad setting caused really lot of troubles here
 
@@ -18,8 +19,10 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 $conn = array(
-    /* back */  'path' => __DIR__ . '/db.sqlite',
-                'driver' => 'pdo_sqlite'
+    'user' => USERNAME,
+    'password'=>PASSWORD,
+    'path' => PATH,
+    'driver' => DRIVER
 );
 $em = EntityManager::create($conn, $config);
 
