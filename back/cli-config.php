@@ -2,7 +2,7 @@
 // cli-config.php
 require_once "bootstrap.php";
 
-// bad setting caused really lot of troubles here 
+// bad setting caused really lot of troubles here
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;

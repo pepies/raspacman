@@ -11,9 +11,8 @@ class HttpResponse
             header('Content-type: application/json');
             header("Access-Control-Allow-Headers: Content-Type,Authorization");
             header("Access-Control-Allow-Methods: GET");
-            // header("Access-Control-Allow-Origin: *");
-            // die($data);
-            print $data;
+            header("Access-Control-Allow-Origin: *");
+            die($data);
         } else {
             throw new \Exception('Response was alredy sent.');
         }
