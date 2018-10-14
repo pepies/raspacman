@@ -1,12 +1,13 @@
 <?php
 // cli-config.php
 require_once "bootstrap.php";
-// Should I inject Storage class here instead copy content?
-// or its depends on personal setup ?
+
+// bad setting caused really lot of troubles here 
+
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 
-$paths = array(__DIR__."/src");
+$paths = array(__DIR__."/src/Models/Entities");
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(
     $paths,
@@ -17,7 +18,7 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 $conn = array(
-    /* back */  'path' => __DIR__ . '/../../../db.sqlite',
+    /* back */  'path' => __DIR__ . '/db.sqlite',
                 'driver' => 'pdo_sqlite'
 );
 $em = EntityManager::create($conn, $config);
