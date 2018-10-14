@@ -12,9 +12,10 @@ class HttpResponse
             header("Access-Control-Allow-Headers: Content-Type,Authorization");
             header("Access-Control-Allow-Methods: GET");
             // header("Access-Control-Allow-Origin: *");
-            die($data);
+            // die($data);
+            print $data;
         } else {
-            throw new Exception('Response was alredy sent.');
+            throw new \Exception('Response was alredy sent.');
         }
     }
 }

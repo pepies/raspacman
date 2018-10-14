@@ -8,8 +8,11 @@ use rpman\Models\Entities\Level as Level;
  */
 class Parser
 {
-    public function parseHttp(array $plainHttpRequest)
+    public function parseHttp(?array $plainHttpRequest)
     {
+        if ($plainHttpRequest === null) {
+            throw new \Exception("No http content recived");
+        }
         return new ParserFromHttp($plainHttpRequest);
     }
 
