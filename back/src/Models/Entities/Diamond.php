@@ -1,4 +1,4 @@
-<?php namespace rpman\Models\Level;
+<?php namespace rpman\Models\Entities;
 
 use \rpman\Interfaces\IHasPosition;
 use Doctrine\ORM\Mapping as ORM;

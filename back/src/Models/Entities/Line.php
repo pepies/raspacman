@@ -1,4 +1,4 @@
-<?php namespace rpman\Models\Level;
+<?php namespace rpman\Models\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 

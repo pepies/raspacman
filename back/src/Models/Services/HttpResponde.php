@@ -1,4 +1,4 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Services;
 
 /**
  * Get content from http post

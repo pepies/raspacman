@@ -1,77 +1,25 @@
-<?php namespace rpman\Models;
+<?php namespace rpman\Models\Services;
 
-use rpman\Models\Level\Level;
-use rpman\Models\Level\Coin;
-use rpman\Models\Level\Monster;
-use rpman\Models\Level\Line;
-use rpman\Models\Level\Diamond;
-use rpman\Models\Level\Character;
+use rpman\Models\Entities\Level;
+use rpman\Models\Entities\Coin;
+use rpman\Models\Entities\Monster;
+use rpman\Models\Entities\Line;
+use rpman\Models\Entities\Diamond;
+use rpman\Models\Entities\Character;
 
 /**
  * Parse array to Level Object
  * Iam not really sure if this class follows Single Resposibility Principle
  */
-class Parse
+class ParserFromHttp
 {
-    /*EXPECT httpResponse format as:
-    array (
-        'priserky' =>
-        array (
-            0 =>
-            array (
-            'dx' => '1',
-            'dy' => '1',
-            'x' => '425',
-            'y' => '579',
-            'pohlad' => '0',
-            'typ' => '1',
-            'direction' => 'down',
-            'change_direction' => 'undefined',
-            ),
-            1 =>...
-        ),
-        'coiny' =>
-        array (
-            0 =>
-            array (
-            'x' => '756',
-            'y' => '558',
-            'active' => 'true',
-            ),...
-        ),
-        'diamanty' =>
-        array (
-            0 =>
-            array (
-            'x' => '615',
-            'y' => '544',
-            'active' => 'true',
-            ),...
-        ),
-        'ciarky' =>
-        array (
-            0 =>
-            array (
-            'zac_x' => '0',
-            'zac_y' => '600',
-            'end_x' => '1200',
-            'end_y' => '5',
-            ),
-            1 =>...
-        ),
-        'start' =>
-        array (
-            'x' => '35',
-            'y' => '50',
-        ),
-        )
-    */
     private $level;
 
     private $plainArray;
 
     public function __construct(array $httpResArray)
     {
+        //TODO: test if I really have expected array format
         $this->plainArray = $httpResArray;
         $this->level = new Level();
     }
@@ -98,6 +46,10 @@ class Parse
         );
         $this->level = $this->importCoinsToLevel(
             $this->plainArray['coiny'],
+            $this->level
+        );
+        $this->level = $this->importCharacterToLevel(
+            $this->plainArray['start'],
             $this->level
         );
         
@@ -154,7 +106,7 @@ class Parse
         return $level;
     }
 
-    private function setCharacter(array $character, Level $level): Level
+    private function importCharacterToLevel(array $character, Level $level): Level
     {
         $level->setCharacter($character['x'], $character['y']);
         return $level;

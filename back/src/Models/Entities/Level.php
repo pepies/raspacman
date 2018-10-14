@@ -1,11 +1,11 @@
-<?php namespace rpman\Models\Level;
+<?php namespace rpman\Models\Entities;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="rpman\Repositories\LevelRepository")
  * @ORM\Table(name="levels")
  **/
 class Level implements \rpman\Interfaces\ILevel
@@ -22,7 +22,7 @@ class Level implements \rpman\Interfaces\ILevel
      * One Level has One Player Character.
      * @var Character
      * @ORM\OneToOne(targetEntity="Character", cascade={"all"})
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $character;
 
@@ -30,6 +30,7 @@ class Level implements \rpman\Interfaces\ILevel
      * One level have Many lines.
      * @var Collection
      * @ORM\OneToMany(targetEntity="Line", mappedBy="level", cascade={"all"})
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $lines;
 
@@ -37,6 +38,7 @@ class Level implements \rpman\Interfaces\ILevel
      * One level have Many monsters.
      * @var Collection
      * @ORM\OneToMany(targetEntity="Monster", mappedBy="level", cascade={"all"})
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $monsters;
 
@@ -44,6 +46,7 @@ class Level implements \rpman\Interfaces\ILevel
     * One level have Many diamonds.
     * @var Collection
     * @ORM\OneToMany(targetEntity="Diamond", mappedBy="level", cascade={"all"})
+     * @ORM\JoinColumn(nullable=false)
     */
     protected $diamonds;
 
@@ -51,6 +54,7 @@ class Level implements \rpman\Interfaces\ILevel
      * One level have Many coins.
      * @var Collection
      * @ORM\OneToMany(targetEntity="Coin", mappedBy="level", cascade={"all"})
+     * @ORM\JoinColumn(nullable=false)
      */
     protected $coins;
 
@@ -69,7 +73,7 @@ class Level implements \rpman\Interfaces\ILevel
     }
 
     //character
-    public function getCharacter(): ArrayCollection
+    public function getCharacter(): Collection
     {
         return $this->character;
     }
@@ -79,7 +83,7 @@ class Level implements \rpman\Interfaces\ILevel
     }
 
     // Lines
-    public function getLines(): ArrayCollection
+    public function getLines(): Collection
     {
         return  $this->lines;
     }
@@ -91,7 +95,7 @@ class Level implements \rpman\Interfaces\ILevel
     }
     
     // Monsters
-    public function getMonsters(): ArrayCollection
+    public function getMonsters(): Collection
     {
         return $this->monsters;
     }
@@ -103,7 +107,7 @@ class Level implements \rpman\Interfaces\ILevel
     }
     
     // Diamonds
-    public function getDiamonds(): ArrayCollection
+    public function getDiamonds(): Collection
     {
         return $this->diamonds;
     }
@@ -115,7 +119,7 @@ class Level implements \rpman\Interfaces\ILevel
     }
     
     // Coins
-    public function getCoins(): ArrayCollection
+    public function getCoins(): Collection
     {
         return  $this->coins;
     }

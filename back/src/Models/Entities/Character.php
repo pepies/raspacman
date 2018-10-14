@@ -1,12 +1,12 @@
-<?php namespace rpman\Models\Level;
+<?php namespace rpman\Models\Entities;
 
 use \rpman\Interfaces\IHasPosition;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity @ORM\Table(name="coins")
+ * @ORM\Entity
  **/
-class Coin implements IHasPosition
+class Character implements IHasPosition
 {
     /**
     * @ORM\Id
@@ -15,25 +15,19 @@ class Coin implements IHasPosition
     **/
     protected $id;
 
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="Level", inversedBy="coins")
-     */
-    private $level;
-
     /** $x
     * @ORM\Column(type="integer")
-    */
+    **/
     private $x;
 
     /** $y
     * @ORM\Column(type="integer")
-    */
+    **/
     private $y;
 
-    public function __construct(int $x, int $y)
+    public function __construct(int $x = 50, int $y = 50)
     {
-        $this->setPosition($x, $y);
+        $this->setStratingPos($x, $y);
     }
 
     public function getX(): int
@@ -46,14 +40,9 @@ class Coin implements IHasPosition
         return $this->y;
     }
 
-    protected function setPosition(int $x, int $y)
+    public function setStratingPos(int $x, int $y)
     {
         $this->x = $x;
         $this->y = $y;
-    }
-
-    public function setLevel($level)
-    {
-        $this->level = $level;
     }
 }
