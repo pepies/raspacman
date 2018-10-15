@@ -45,7 +45,6 @@ function newLevel(setNew) {
 }
 
 function level_rand_db() {
-  clear_gameboard()
   $.ajax({
     type: "GET",
     dataType: "json",
