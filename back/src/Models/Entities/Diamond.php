@@ -9,7 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  **/
 class Diamond implements IHasPosition
 {
-    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue **/
+    /** @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    **/
     protected $id;
 
     /**

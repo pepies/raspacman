@@ -32,6 +32,7 @@ class LevelRepository extends \Doctrine\ORM\EntityRepository
                 WHERE lvl.id = ?1";
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter(1, $id);
+
         $level = $query->getArrayResult();
         if (empty($level)) { //recursivly looks for existing level
             $level = $this->getRandomLevelAsArray();

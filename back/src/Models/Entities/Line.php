@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Inversed side for Level
  * @ORM\Entity
- * @ORM\Table(name="lines")
+ * @ORM\Table(name="`lines`")
  **/
 class Line
 {
