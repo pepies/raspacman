@@ -1,7 +1,6 @@
 <?php
 // cli-config.php
 require_once "bootstrap.php";
-include("./creditials.php");
 
 // bad setting caused really lot of troubles here
 
@@ -18,13 +17,14 @@ $config = Setup::createAnnotationMetadataConfiguration(
     false
 );
 
-$conn = array(
-    'dbname' => DBNAME,
-    'user' => LOGIN,
-    'password' => PASS,
-    'host' => HOSTNAME,
-    'driver' => 'pdo_mysql',
-);
+$ini = parse_ini_file("./config.ini");
+        $conn = array(
+            'dbname' => $ini['dbname'],
+            'user' => $ini['user'],
+            'password' => $ini['pass'],
+            'host' => $ini['host'],
+            'driver' => 'pdo_mysql',
+        );
 $em = EntityManager::create($conn, $config);
 
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($em);

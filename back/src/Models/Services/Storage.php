@@ -1,8 +1,6 @@
 <?php
 namespace rpman\Models\Services;
 
-include("../../../creditials.php");
-
 use rpman\Models\Entities\Level as Level;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
@@ -22,12 +20,12 @@ class Storage
             null,
             false
         );
-
+        $ini = parse_ini_file("../../../config.ini");
         $conn = array(
-            'dbname' => DBNAME,
-            'user' => LOGIN,
-            'password' => PASS,
-            'host' => 'mariadb101.websupport.sk:3312',
+            'dbname' => $ini['dbname'],
+            'user' => $ini['user'],
+            'password' => $ini['pass'],
+            'host' => $ini['host'],
             'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);
