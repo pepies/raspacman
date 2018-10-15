@@ -27,7 +27,7 @@ class Storage
             'user' => $ini['db_user'],
             'password' => $ini['db_pass'],
             'host' => $ini['db_host'],
-            'port' => $nit['db_port'],
+            'port' => $ini['db_port'],
             'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);
