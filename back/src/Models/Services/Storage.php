@@ -13,7 +13,7 @@ class Storage
 
     public function __construct()
     {
-        $paths = array(__DIR__."../Entities");
+        $paths = array(__DIR__."/../Entities");
         $isDevMode = true;
         $config = Setup::createAnnotationMetadataConfiguration(
             $paths,
