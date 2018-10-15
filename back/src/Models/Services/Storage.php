@@ -12,7 +12,7 @@ class Storage
     public function __construct()
     {
         $paths = array("../Entities");
-        $isDevMode = true;
+        $isDevMode = false;
         $config = Setup::createAnnotationMetadataConfiguration(
             $paths,
             $isDevMode,
@@ -20,12 +20,14 @@ class Storage
             null,
             false
         );
-        $ini = parse_ini_file("../../../config.ini");
+        $ini = parse_ini_file(__DIR__."/config.ini");
+        var_dump($ini);
         $conn = array(
-            'dbname' => $ini['dbname'],
-            'user' => $ini['user'],
-            'password' => $ini['pass'],
-            'host' => $ini['host'],
+            'dbname' => $ini['db_name'],
+            'user' => $ini['db_user'],
+            'password' => $ini['db_pass'],
+            'host' => $ini['db_host'],
+            'port' => $nit['db_port'],
             'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);

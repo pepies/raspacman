@@ -18,13 +18,14 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 $ini = parse_ini_file("./config.ini");
-        $conn = array(
-            'dbname' => $ini['dbname'],
-            'user' => $ini['user'],
-            'password' => $ini['pass'],
-            'host' => $ini['host'],
-            'driver' => 'pdo_mysql',
-        );
+$conn = array(
+    'dbname' => $ini['db_name'],
+    'user' => $ini['db_user'],
+    'password' => $ini['db_pass'],
+    'host' => $ini['db_host'],
+    'port' => $nit['db_port'],
+    'driver' => 'pdo_mysql',
+);
 $em = EntityManager::create($conn, $config);
 
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($em);
