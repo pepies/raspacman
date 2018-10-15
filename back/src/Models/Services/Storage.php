@@ -27,7 +27,7 @@ class Storage
             'user' => USERNAME,
             'password'=>PASSWORD,
             'path' => PATH,
-            'driver' => DRIVER
+            'driver' => 'pdo_sqlite'
         );
         $this->em = EntityManager::create($conn, $config);
         //debug

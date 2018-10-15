@@ -22,7 +22,7 @@ $conn = array(
     'user' => USERNAME,
     'password'=>PASSWORD,
     'path' => PATH,
-    'driver' => DRIVER
+    'driver' => 'pdo_sqlite'
 );
 $em = EntityManager::create($conn, $config);
 
