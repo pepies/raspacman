@@ -98,8 +98,6 @@ function init() {
 }
 
 function main() {
-    //2x faster for more fun
-    animation()
     animation()
     requestAnimationFrame(main)
 }
