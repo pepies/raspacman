@@ -63,7 +63,7 @@ class ParserFromHttp
      * @param Level $level
      * @return Level
      */
-    private function importMonstersToLevel(array $monsters, Level $level): Level
+    private function importMonstersToLevel(?array $monsters, Level $level): Level
     {
         foreach ($monsters as $monster) {
             $monster = new Monster(
@@ -76,7 +76,7 @@ class ParserFromHttp
         return $level;
     }
 
-    private function importCoinsToLevel(array $coins, Level $level): Level
+    private function importCoinsToLevel(?array $coins, Level $level): Level
     {
         foreach ($coins as $coin) {
             $level->addCoin(new Coin($coin['x'], $coin['y']));
@@ -84,7 +84,7 @@ class ParserFromHttp
         return $level;
     }
 
-    private function importDiamondsToLevel(array $diamonds, Level $level): Level
+    private function importDiamondsToLevel(?array $diamonds, Level $level): Level
     {
         foreach ($diamonds as $diamond) {
             $level->addDiamond(new Diamond($diamond['x'], $diamond['y']));
@@ -92,7 +92,7 @@ class ParserFromHttp
         return $level;
     }
 
-    private function importLinesToLevel(array $lines, Level $level): Level
+    private function importLinesToLevel(?array $lines, Level $level): Level
     {
         foreach ($lines as $line) {
             $line = new Line(
@@ -106,7 +106,7 @@ class ParserFromHttp
         return $level;
     }
 
-    private function importCharacterToLevel(array $character, Level $level): Level
+    private function importCharacterToLevel(?array $character, Level $level): Level
     {
         $level->setCharacter($character['x'], $character['y']);
         return $level;
