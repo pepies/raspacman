@@ -10,10 +10,15 @@ function lopta_draw() {
 
     context.closePath()
 
-    if (lopta.naraz == false) {
-        move(lopta)
-    } else {
+    if (lopta.naraz) {
         check_point()
+    } else {
+        move(lopta)
+        if (lopta.naraz) {
+            check_point()
+        } else {
+            move(lopta)
+        }
     }
 }
 
@@ -129,5 +134,16 @@ function scorebar_draw() {
 
     context.fillStyle = '#101C04'
     context.fillText("LEVEL " + (hrac.level + 1) + "-->", 1060, 300)
+}
+
+function naraz_draw(shouldBeDrawed) {
+    if (shouldBeDrawed) {   
+        context.drawImage(naraz_image[rand], kde_x - (inc * 2), kde_y - (inc * 2), inc * 5, inc * 4)
+        inc++
+        if (inc > 20) {
+            naraz_happened = false
+            inc = 0
+        }
+    }
 }
 

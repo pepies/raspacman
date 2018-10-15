@@ -13,7 +13,7 @@ var priserky = []
 var priserky_img = []
 
 //Vykreslovanie obrazku narazu
-var draw = false
+var naraz_happened = false
 var rand = 0
 var inc = 0
 var kde_x = 0
@@ -108,11 +108,11 @@ function animation() {
     coin_draw()
     diamant_draw()
 
-    if (draw) {
+    if (naraz_happened) {
         context.drawImage(naraz_image[rand], kde_x - (inc * 2), kde_y - (inc * 2), inc * 5, inc * 4)
         inc++
         if (inc > 20) {
-            draw = false
+            naraz_happened = false
             inc = 0
         }
     }

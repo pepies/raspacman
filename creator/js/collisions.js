@@ -5,7 +5,7 @@ function check_point() {
     //Vykreslovanie obrazku narazu
     rand = Math.random() * 3
     rand = rand.toFixed(0)
-    draw = true
+    naraz_happened = true
     kde_x = lopta.x
     kde_y = lopta.y
 

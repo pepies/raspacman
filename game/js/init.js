@@ -1,4 +1,6 @@
 // INICIALIZACIA Globálnych premenných
+// old practise, I would Do it by constructors 
+//and object methods and prototypes now
 var canvas
 var context
 var levels = []
@@ -12,7 +14,7 @@ var priserky = []
 
 var priserky_img = []
 //Vykreslovanie obrazku narazu
-var draw = false
+var naraz_happened = false
 var rand = 0
 var inc = 0
 var kde_x = 0
@@ -111,15 +113,8 @@ function animation() {
     ciara_draw()
     coin_draw()
     diamant_draw()
+    naraz_draw(naraz_happened)
 
-    if (draw) {
-        context.drawImage(naraz_image[rand], kde_x - (inc * 2), kde_y - (inc * 2), inc * 5, inc * 4)
-        inc++
-        if (inc > 20) {
-            draw = false
-            inc = 0
-        }
-    }
 }
 
 window.onload = function () {
