@@ -27,7 +27,7 @@ class Storage
             'dbname' => DBNAME,
             'user' => LOGIN,
             'password' => PASS,
-            'host' => HOST,
+            'host' => HOSTNAME,
             'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);
