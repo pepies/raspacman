@@ -19,8 +19,6 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 $conn = array(
-    'user' => USERNAME,
-    'password'=>PASSWORD,
     'path' => PATH,
     'driver' => 'pdo_sqlite'
 );
