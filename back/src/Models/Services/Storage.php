@@ -24,8 +24,11 @@ class Storage
         );
 
         $conn = array(
-            'path' => PATH,
-            'driver' => 'pdo_sqlite'
+            'dbname' => DBNAME,
+            'user' => LOGIN,
+            'password' => PASS,
+            'host' => HOST,
+            'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);
         //debug
