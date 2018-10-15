@@ -24,7 +24,7 @@ $conn = array(
     'password' => $ini['db_pass'],
     'host' => $ini['db_host'],
     'port' => $ini['db_port'],
-    'driver' => 'mysqli'
+    'driver' => 'pdo_mysql',
 );
 $em = EntityManager::create($conn, $config);
 

@@ -21,7 +21,6 @@ class Storage
             false
         );
         $ini = parse_ini_file(__DIR__."/config.ini");
-        var_dump($ini);
         $conn = array(
             'dbname' => $ini['db_name'],
             'user' => $ini['db_user'],

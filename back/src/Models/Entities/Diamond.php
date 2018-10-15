@@ -4,7 +4,8 @@ use \rpman\Interfaces\IHasPosition;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity @ORM\Table(name="diamonds")
+ * @ORM\Entity
+ * @ORM\Table(name="diamonds")
  **/
 class Diamond implements IHasPosition
 {
