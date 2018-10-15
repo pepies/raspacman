@@ -27,7 +27,7 @@ class Storage
             'dbname' => DBNAME,
             'user' => LOGIN,
             'password' => PASS,
-            'host' => HOSTNAME,
+            'host' => 'mariadb101.websupport.sk:3312',
             'driver' => 'pdo_mysql',
         );
         $this->em = EntityManager::create($conn, $config);
