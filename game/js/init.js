@@ -114,7 +114,6 @@ function animation() {
     coin_draw()
     diamant_draw()
     naraz_draw(naraz_happened)
-
 }
 
 window.onload = function () {
