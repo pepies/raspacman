@@ -1,6 +1,13 @@
 // INICIALIZACIA Globálnych premenných
-// old practise, I would Do it by constructors 
+// old practise, --OLD CODE-- I would Do it by constructors 
 //and object methods and prototypes now
+//Also functions are not in apropriate files.
+
+function main() {
+    animation()
+    requestAnimationFrame(main)
+}
+
 var canvas
 var context
 var levels = []
@@ -42,12 +49,7 @@ function pridaj_priserku(x, y, direction) {
 
 //**********************************************************
 
-
-function init() {
-
-    //PRELOAD prostredia pre canvas
-    newLevel(true)
-
+function initAssets() {
     //načítanie obrázkov
     pohlad[0] = document.getElementById('front')
     pohlad[1] = document.getElementById('back')
@@ -65,7 +67,6 @@ function init() {
     priserky_img[3] = document.getElementById('enemy_3')
 
     prek_bg = document.getElementById('prek_bg')
-
     life = document.getElementById('life')
 
     img_diamant = document.getElementById('img_diamant')
@@ -78,35 +79,12 @@ function init() {
     zvuk_power = document.getElementById("zvuk_power")
     zvuk_monster = document.getElementById("zvuk_monster")
 
-    /* level1=document.getElementById("level1")
-     level2=document.getElementById("level2")
-     level3=document.getElementById("level3")*/
-
     canvas = document.getElementById('canvas_id')
     context = canvas.getContext('2d')
-
-    window.onresize = function () {
-        updateScreenSize()
-    }
-
-    function updateScreenSize() {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-        context.scale(window.innerWidth / 1200, window.innerHeight / 650)
-    }
-    updateScreenSize()
-    canvas.style.backgroundImage = "url('img/bg.jpg')"
-
-}
-
-function main() {
-    animation()
-    requestAnimationFrame(main)
 }
 
 function animation() {
     context.clearRect(0, 0, 5000, 5000)
-
     lopta_draw()
     priserka_draw()
     scorebar_draw()
@@ -117,7 +95,19 @@ function animation() {
 }
 
 window.onload = function () {
-    init()
+    
+    newLevel(true)
+    initAssets()
+
+    canvas.style.backgroundImage = "url('img/bg.jpg')"
+
+    window.onresize = function () {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        context.scale(window.innerWidth / 1200, window.innerHeight / 650)
+    }
+    $(window).trigger('resize');
+
     document.onkeydown = function (e) {
         doKeyDown(e)
     }

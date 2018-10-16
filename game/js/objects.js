@@ -1,15 +1,14 @@
 function hrac_constructor() {
     this.level = 0;
 }
-
 hrac_constructor.prototype.score = 0
 
 function lopta_constructor() {
     //Constructor loptičky
     this.x = 50
     this.y = 50
-    this.dx = 5 //nie vektor pohybu ale rychlost pohybu
-    this.dy = 5
+    this.dx = 3 //nie vektor pohybu ale rychlost pohybu
+    this.dy = 3
     this.naraz = false
     this.pohlad = 0
     this.direction = "stop"
@@ -19,7 +18,6 @@ function lopta_constructor() {
 }
 
 function ciara_constructor(zac_x, zac_y, end_x, end_y) {
-
     this.zac_x = zac_x
     this.zac_y = zac_y
     this.end_x = end_x
@@ -40,9 +38,9 @@ function priserka_constructor(x, y, direction) {
 }
 
 priserka_constructor.prototype.change_direction = function (now) {
-    if (now == "down") this.direction = "up"
-    if (now == "up") this.direction = "down"
-    if (now == "left") this.direction = "right"
+    if (now == "down")  this.direction = "up"
+    if (now == "up")    this.direction = "down"
+    if (now == "left")  this.direction = "right"
     if (now == "right") this.direction = "left"
 }
 

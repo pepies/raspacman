@@ -23,9 +23,9 @@ function clear_gameboard() {
   coiny.splice(0, 9999)
   diamanty.splice(0, 9999)
   priserky.splice(0, 9999)
-  pridaj_ciaru(0, 600, 1200, 5)
-  pridaj_ciaru(0, 0, 1200, 5)
-  pridaj_ciaru(0, 0, 5, 600)
+  pridaj_ciaru(0, 600, 1200, 6)
+  pridaj_ciaru(0, 0, 1200, 6)
+  pridaj_ciaru(0, 0, 6, 600)
 }
 
 /**
@@ -57,10 +57,6 @@ function level_rand_db() {
         let l = result[0].lines[index];
         pridaj_ciaru(l.start_x, l.start_y, l.end_x, l.end_y)
       })
-      $.each( result[0].monsters, function (index) {
-        let m = result[0].monsters[index];
-        pridaj_priserku(m.x, m.y, m.direction)
-      })
       $.each( result[0].diamonds, function (index) {
         let d = result[0].diamonds[index];
         pridaj_diamant(d.x, d.y)
@@ -68,6 +64,10 @@ function level_rand_db() {
       $.each( result[0].coins, function (index) {
         let c = result[0].coins[index];
         pridaj_diamant(c.x, c.y)
+      })
+      $.each( result[0].monsters, function (index) {
+        let m = result[0].monsters[index];
+        pridaj_priserku(m.x, m.y, m.direction)
       })
     },
     error: function () {

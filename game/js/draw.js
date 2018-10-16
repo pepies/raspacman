@@ -74,10 +74,9 @@ function priserka_draw() {
 
     for (i in priserky) {
         var priserka = priserky[i]
+        move(priserka)
         PrisekyVsLopta(priserka) //collision
         CiarkyVsPriserky(priserka) //collision, the most bandwidth for count
-
-        move(priserka)
 
         context.beginPath();
         context.drawImage(priserky_img[priserka.typ], priserka.x - 10, priserka.y - 10, 20, 20)
