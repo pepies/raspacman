@@ -11,7 +11,7 @@ function lopta_draw() {
     if (lopta.naraz == false) {
         move(lopta)
     } else {
-        check_point()
+        lopta.check_point()
     }
 }
 

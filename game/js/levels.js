@@ -1,7 +1,7 @@
 function level_passed() {
 
   lopta.direction = "stop";
-  lopta.x = 1190; // to eliminate new API request when standing on fireland
+  lopta.x -= 20; // to eliminate new API request when standing on fireland
   newLevel(true)
 }
 

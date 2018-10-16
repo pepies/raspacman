@@ -2,6 +2,7 @@
 // old practise, --OLD CODE-- I would Do it by constructors 
 //and object methods and prototypes now
 //Also functions are not in apropriate files.
+// trolol combination of OOP with procedural style
 
 function main() {
     animation()

@@ -1,6 +1,6 @@
 function lopta_draw() {
 
-    if (lopta.x > 1200) { level_passed() }
+    if (lopta.x > 1960) { level_passed() }
 
     context.beginPath()
     if (lopta.pohlad == 0) { context.drawImage(pohlad[0], lopta.x - 15, lopta.y - 15, 30, 30) }
@@ -11,11 +11,11 @@ function lopta_draw() {
     context.closePath()
 
     if (lopta.naraz) {
-        check_point()
+        lopta.check_point()
     } else {
         move(lopta)
         if (lopta.naraz) {
-            check_point()
+            lopta.check_point()
         } else {
             move(lopta)
         }

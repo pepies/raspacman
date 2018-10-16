@@ -12,7 +12,7 @@ function PrisekyVsLopta(priserka) {
         (lopta.y + 15 >= priserka.y) && (lopta.y <= priserka.y + 15)
     ) {
         zvuk_monster.play()
-        check_point()
+        lopta.check_point()
     }
 }
 
